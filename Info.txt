@@ -2,3 +2,29 @@ Libro
 Desarrollo de Aplicaciones Web con Php y Msql
 
 ISBN: 9786123042554
+
+
+
+
+
+                if ($txtCodigo != "") {
+                    $sql = "SELECT b.no_boleta, b.fecha, c.codigo_cliente, c.nombre
+                    FROM boletas b, clientes c
+                    WHERE b.codigo_cliente = c.codigo_cliente AND c.codigo_cliente = '$txtCodigo'";
+                    $resultado = mysqli_query($conexion, $sql);
+                    while ($fila = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td>" . $fila['no_boleta'] . "</td>";
+                        echo "<td>" . $fila['fecha'] . "</td>";
+                        echo "<td>" . $fila['codigo_cliente'] . "</td>";
+                        echo "<td>" . $fila['nombre'] . "</td>";
+                        $sql2 = "SELECT SUM(d.cantidad * p.precio) AS subtotal
+                        FROM boletas b, detalle_boletas d, productos p
+                        WHERE b.no_boleta = d.no_boleta AND d.codigo_producto = p.codigo_producto AND
+                        b.no_boleta = '" . $fila['no_boleta'] . "'";
+                        $resultado2 = mysqli_query($conexion, $sql2);
+                        $fila2 = mysqli_fetch_assoc($resultado2);
+                        echo "<td>" . $fila2['subtotal'] . "</td>";
+                        echo "</tr>";
+                        }
+                        }
