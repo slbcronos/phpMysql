@@ -1,0 +1,32 @@
+
+        <table class="table table-bordered border-primary" border="0" width="940" cellspacing="0" cellpadding="0">
+            <tr>
+                <td><strong>CODIGO</strong></td>
+                <td><strong>CLIENTE</strong></td>
+                <td><strong>DIRECCION</strong></td>
+                <td><strong>TELEFONO</strong></td>
+                <td><strong>DISTRITO</strong></td>
+                <td><strong>EMAIL</strong></td>
+            </tr>
+
+            <?php for ($i = 0; $i < $totalRegistros; $i++) { ?>
+                <tr>
+                    
+                
+                    <td><?php echo $Registro['ID_CLIENTE'],$i; ?></td>
+                    <td><?php echo $Registro['NOMBRES'],$i . ' ' . $Registro['PATERNO'] . ' ' . $Registro['MATERNO']; ?></td>
+                    <td><?php echo $Registro['DIRECCION']; ?></td>
+                    <td><?php echo $Registro['FONO']; ?></td>
+                    <td><?php echo $Registro['ID_DISTRITO']; ?></td>
+                    <td><?php echo $Registro['EMAIL']; ?></td>
+                </tr>
+
+            <?php } ?>
+            <tr>
+                <td>
+                    <br />
+                   <strong><?php echo "Total de Clientes es: " . $totalRegistros; ?></strong> 
+                </td>
+            </tr>
+
+        </table>

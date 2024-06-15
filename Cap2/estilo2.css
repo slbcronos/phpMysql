@@ -1,0 +1,15 @@
+body{
+    font-family: tahoma;
+    font-size: 12px;
+}
+
+table{
+    border: 1px solid #000;
+    width: 100%;
+
+}
+
+#fila{
+    background: activecaption;
+    font-size: 14px;
+}
